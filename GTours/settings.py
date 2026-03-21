@@ -40,11 +40,17 @@ INSTALLED_APPS = [
 
     'django_ckeditor_5',
 
+    'about',
     'accounts',
     'blog',
+    'inquiry',
+    'legaldocument',
+    'page',
     'seo',
+    'service',
     'settings',
     'slider',
+    'team',
 ]
 
 
