@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'about',
     'accounts',
     'blog',
+    'core',
     'inquiry',
     'legaldocument',
     'page',
@@ -70,7 +71,7 @@ ROOT_URLCONF = 'GTours.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
