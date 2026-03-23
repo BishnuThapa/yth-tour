@@ -222,3 +222,71 @@ class Tour(models.Model):
         options={'quality': 80}
     )
 
+
+class Gallery(models.Model):
+    tour = models.ForeignKey(Tour, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='tour/gallery', null=True, blank=True)
+
+    class Meta:
+        verbose_name = "Gallery"
+        verbose_name_plural = "Gallery"
+
+     # Resized JPEG (fallback)
+    image_optimized = ImageSpecField(
+        source='image',
+        processors=[ResizeToFit(1200)],
+        format='JPEG',
+        options={'quality': 80}
+    )
+
+    # WebP optimized version
+    image_webp = ImageSpecField(
+        source='image',
+        processors=[ResizeToFit(1200), Convert('WEBP')],
+        format='WEBP',
+        options={'quality': 80}
+    )
+
+
+class Itinerary(models.Model):
+    tour = models.ForeignKey(Tour, on_delete=models.CASCADE)
+    day = models.IntegerField(null=True, blank=True)
+    title = models.CharField(max_length=255, null=True, blank=True)
+    description = CKEditor5Field(config_name='extends', null=True, blank=True)
+
+
+class Faq(models.Model):
+    tour = models.ForeignKey(Tour, on_delete=models.CASCADE)
+    question = models.CharField(max_length=255, null=True, blank=True)
+    answer = models.TextField(null=True, blank=True)
+
+    def __str__(self):
+        return self.question
+
+
+class Seo(models.Model):
+    tour = models.ForeignKey(Tour, on_delete=models.CASCADE)
+    title = models.CharField(max_length=255, null=True, blank=True)
+    keywords = models.CharField(max_length=255, null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'SEO'
+        verbose_name_plural = 'SEO'
+
+
+class Departure(models.Model):
+    tour = models.ForeignKey(Tour, on_delete=models.CASCADE)
+    departure_date = models.DateField()
+    end_date = models.DateField()
+    spaces = models.PositiveIntegerField(null=True, blank=True)
+
+    def __str__(self):
+        return self.tour.title
+
+    class Meta:
+        verbose_name = "Fixed Departure"
+        verbose_name_plural = "Fixed Departure"
