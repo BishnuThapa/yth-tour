@@ -1,0 +1,118 @@
+{% extends "base.html" %} 
+{% load static %}
+{% block content %}
+
+<main>
+  <!-- breadcrumb-area-start -->
+  <div
+    class="tp-breadcrumb-area tp-breadcrumb-ptb tp-breadcrumb-overly bg-position"
+    data-background="assets/img/breadcrumb/bg-9.html"
+  >
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="tp-breadcrumb-wrap text-center">
+            <h2 class="tp-breadcrumb-title fs-112 text-center mb-0">
+              Legal Documents
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- breadcrumb-area-end -->
+
+  <!-- tp-blog-area-start -->
+  <div class="tp-blog-area tp-tour-ptb tp-animate-tab pt-140 pb-140">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="tp-blog-grid-tab mb-50 text-center">
+            <div class="tp-about-section-title p-relative pb-30">
+              <h2
+                class="tp-section-title fs-32 fw-600 wow fadeInUp"
+                data-wow-duration=".9s"
+                data-wow-delay=".4s"
+              >
+               Legal documents
+              </h2>
+              
+            </div>
+           
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="tab-content p-relative">
+            <div class="tab-pane active" id="london" role="tabpanel">
+              <div class="row">
+                <div class="col-xl-4 col-lg-6 col-md-6">
+                  <div class="tp-blog-item tp-blog-3-item mb-30">
+                    <div class="tp-blog-thumb fix mb-30">
+                      <a href="blog-details.html" class="d-block">
+                        <img
+                          class="w-100"
+                          src="{% static 'assets/img/blog/three/thumb.html'%}"
+                          alt=""
+                        />
+                      </a>
+                    </div>
+                    <div class="tp-blog-content">
+                     
+                      <h3 class="tp-blog-title fw-600">
+                        <a href="blog-details.html"
+                          >Company Registration</a
+                        >
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+               
+               
+              </div>
+            </div>
+            <div class="tab-pane" id="bangkok" role="tabpanel">
+              <div class="row">
+                <div class="col-xl-4 col-lg-6 col-md-6">
+                  <div class="tp-blog-item tp-blog-3-item mb-30">
+                    <div class="tp-blog-thumb fix mb-30">
+                      <a href="blog-details.html" class="d-block">
+                        <img
+                          class="w-100"
+                          src="assets/img/blog/three/thumb-3.html"
+                          alt=""
+                        />
+                      </a>
+                    </div>
+                    <div class="tp-blog-content">
+                      <div
+                        class="tp-blog-meta-wrap d-flex flex-wrap align-items-center mb-15"
+                      >
+                        <span class="tp-blog-category">Heritage</span>
+                        <div class="tp-blog-meta">
+                          <span>Dec 12,2025</span>
+                          <span>Admin</span>
+                        </div>
+                      </div>
+                      <h3 class="tp-blog-title fw-600">
+                        <a href="blog-details.html"
+                          >Historic Architecture with Golden Artistic Details</a
+                        >
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- tp-tour-area-end -->
+</main>
+
+{% endblock content %}
