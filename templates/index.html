@@ -4,8 +4,8 @@
   <!-- tp-hero-area-start -->
   <div
     class="tp-hero-area tp-hero-7-ptb bg-position tp-hero-bg p-relative z-1"
-    data-background="{% static 'assets/img/thumb.webp'%}"
-    style="background-image: url({% static 'assets/img/thumb.webp' %})"
+    data-background="{{ banner.image.url }}"
+    style="background-image: url({{ banner.image.url }});"
   >
     <img
       class="tp-hero-7-shape"
@@ -22,9 +22,15 @@
                 data-wow-duration=".9s"
                 data-wow-delay=".3s"
               >
-                Effortlessly<br />
-                with tour booking
+                {{ banner.title}}
               </h4>
+              <p
+                class="tp-hero-6-dec fw-500 text-white wow fadeInUp"
+                data-wow-duration=".9s"
+                data-wow-delay=".5s"
+              >
+               {{ banner.sub_title }}
+              </p>
               <p
                 class="tp-hero-6-dec fw-500 text-white wow fadeInUp"
                 data-wow-duration=".9s"

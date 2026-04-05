@@ -9,11 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Place favicon.ico in the root directory -->
-    <link
-      rel="shortcut icon"
-      type="image/x-icon"
-      href="assets/img/logo/favicon.png"
-    />
+    <link rel="icon" type="image/x-icon" href="{{ favicon.favicon.url }}" />
 
     <!-- CSS here -->
     <link rel="stylesheet" href="{% static 'assets/css/bootstrap.css' %}" />
@@ -663,17 +659,12 @@
               <div class="tp-header-left d-flex align-items-center">
                 <div class="tp-header-logo mr-60">
                   <a href="/">
-                    <img
-                      width="115"
-                      src="{% static 'assets/img/logo/logo.png' %}"
-                      alt=""
-                    />
+                    <img width="150" src="{{ logo.logo.url }}" alt="" />
                   </a>
                 </div>
                 <div class="tp-main-menu tp-menu-dropdown d-none d-xl-block">
                   <nav class="tp-mobile-menu-active">
                     <ul>
-                      
                       <li class="has-dropdown">
                         <a href="city-details-2.html">Nepal</a>
                         <div class="sub-menu tp-megamenu-wrapper">
@@ -951,14 +942,13 @@
                           </div>
                         </div>
                       </li>
-                       <li class="has-dropdown">
+                      <li class="has-dropdown">
                         <a href="tour-grid.html">Bhutan</a>
                         <ul class="sub-menu">
                           <li><a href="tour-grid.html">Tour Grid</a></li>
-                          
                         </ul>
                       </li>
-                       <li class="has-dropdown">
+                      <li class="has-dropdown">
                         <a href="tour-grid.html">Tibet</a>
                         <ul class="sub-menu">
                           <li><a href="tour-grid.html">Tour Grid</a></li>
@@ -967,17 +957,15 @@
                               >Tour Grid Sidebar</a
                             >
                           </li>
-                          
                         </ul>
                       </li>
-                     
-                      
+
                       <li class="has-dropdown">
                         <a href="index-7.html#">Day Tours</a>
                         <ul class="sub-menu">
                           <li><a href="about.html">About</a></li>
                           <li><a href="career.html">Career</a></li>
-                         
+
                           <li><a href="contact.html">Contact</a></li>
                           <li>
                             <a
@@ -999,19 +987,19 @@
                           </li>
                         </ul>
                       </li>
-                       <li class="">
+                      <li class="">
                         <a href="{% url 'blog'%}">Blog</a>
                       </li>
-                     
+
                       <li class="has-dropdown">
                         <a href="index-7.html#">Company</a>
                         <ul class="sub-menu">
                           <li><a href="{% url 'about' %}">About</a></li>
                           <li><a href="{% url 'team' %}">Our Team</a></li>
                           <li><a href="{% url 'whyus' %}">Why Choose Us</a></li>
-                           <li><a href="{% url 'legal' %}">Legal Documents</a></li>
-                         
-                          
+                          <li>
+                            <a href="{% url 'legal' %}">Legal Documents</a>
+                          </li>
                         </ul>
                       </li>
                       <li class="">
@@ -1026,11 +1014,10 @@
               <div
                 class="tp-header-option d-flex align-items-center justify-content-end"
               >
-                
                 <div class="tp-header-contact ml-10 d-none d-sm-block">
-                  <a href="tel:(406)555-0120">(406) 555-0120</a>
+                  <a href="tel:977{{ site_info.mobile }}">(+977) {{ site_info.mobile }}</a>
                 </div>
-                
+
                 <div class="tp-header-toogle-wrapper d-xl-none ml-10">
                   <button class="tp-header-toogle">
                     <span></span>
