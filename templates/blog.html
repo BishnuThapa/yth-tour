@@ -1,23 +1,19 @@
-{% extends "base.html" %}
-{% load static %}
-{% block content %}
+{% extends "base.html" %} {% load static %} {% block content %}
 
 <main>
   <!-- breadcrumb-area-start -->
   <div
     class="tp-breadcrumb-area tp-breadcrumb-ptb tp-breadcrumb-overly bg-position"
-    data-background="assets/img/breadcrumb/bg-10.jpg"
+    data-background="{{ pagebanner.image.url }}"
     style="
-      background-image: url({% static 'https://html.aqlova.com/turie-demo/turie/assets/img/breadcrumb/bg-10.jpg' %};);
+      background-image: url({{ pagebanner.image.url }});
     "
   >
     <div class="container">
       <div class="row">
         <div class="col-12">
           <div class="tp-breadcrumb-wrap text-center">
-            <h2 class="tp-breadcrumb-title fs-112 text-center mb-0">
-              Latest Blog
-            </h2>
+            <h2 class="tp-breadcrumb-title fs-112 text-center mb-0">Blogs</h2>
           </div>
         </div>
       </div>
@@ -38,18 +34,20 @@
             {% for blog in blogs %}
             <div class="tp-blog-item tp-blog-col-2 tp-blog-4-item mb-50">
               <div class="tp-blog-thumb fix">
-                <a href="{% url 'blog_detail' blog.slug %}" class="d-inline-block">
-                  <img
-                    src="{{ blog.image.url }}"
-                    alt="{{ blog.title }}"
-                  />
+                <a
+                  href="{% url 'blog_detail' blog.slug %}"
+                  class="d-inline-block"
+                >
+                  <img src="{{ blog.image.url }}" alt="{{ blog.title }}" />
                 </a>
               </div>
               <div class="tp-blog-content">
                 <div
                   class="tp-blog-meta-wrap d-flex flex-wrap align-items-center mb-15"
                 >
-                  <span class="tp-blog-category">{{ blog.readtime}} min read</span>
+                  <span class="tp-blog-category"
+                    >{{ blog.readtime}} min read</span
+                  >
                   <div class="tp-blog-meta">
                     <span>{{ blog.created_at|date:"M d, Y" }}</span>
                   </div>
@@ -59,9 +57,7 @@
                     >{{ blog.title }}</a
                   >
                 </h3>
-                <p>
-                 {{ blog.description|safe | truncatechars:150 }}
-                </p>
+                <p>{{ blog.description|safe | truncatechars:150 }}</p>
                 <a href="{% url 'blog_detail' blog.slug %}" class="tp-btn-solid"
                   >Learn more
                   <svg
@@ -90,13 +86,15 @@
               </div>
             </div>
             {% endfor %}
-           
+
             <div class="tp-pagination text-center mt-60">
               <nav>
                 <ul>
+                  <!-- Previous -->
+                  {% if blogs.has_previous %}
                   <li>
                     <a
-                      href="blog-list.html#"
+                      href="?page={{ blogs.previous_page_number }}"
                       class="tp-pagination-prev prev page-numbers"
                     >
                       <svg
@@ -112,21 +110,27 @@
                           stroke-width="1.5"
                           stroke-linecap="round"
                           stroke-linejoin="round"
-                        ></path>
+                        />
                       </svg>
                     </a>
                   </li>
+                  {% endif %}
+
+                  <!-- Page Numbers -->
+                  {% for num in blogs.paginator.page_range %} {% if blogs.number
+                  == num %}
+                  <li><span class="current">{{ num }}</span></li>
+                  {% else %}
+                  <li><a href="?page={{ num }}">{{ num }}</a></li>
+                  {% endif %} {% endfor %}
+
+                  <!-- Next -->
+                  {% if blogs.has_next %}
                   <li>
-                    <a href="blog-list.html#">1</a>
-                  </li>
-                  <li>
-                    <span class="current">2</span>
-                  </li>
-                  <li>
-                    <a href="blog-list.html#">3</a>
-                  </li>
-                  <li>
-                    <a href="blog-list.html#" class="next page-numbers">
+                    <a
+                      href="?page={{ blogs.next_page_number }}"
+                      class="next page-numbers"
+                    >
                       <svg
                         width="7"
                         height="12"
@@ -140,16 +144,16 @@
                           stroke-width="1.5"
                           stroke-linecap="round"
                           stroke-linejoin="round"
-                        ></path>
+                        />
                       </svg>
                     </a>
                   </li>
+                  {% endif %}
                 </ul>
               </nav>
             </div>
           </div>
         </div>
-      
       </div>
     </div>
   </div>

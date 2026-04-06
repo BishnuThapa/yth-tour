@@ -12,12 +12,11 @@ class DestinationAdmin(admin.ModelAdmin):
     prepopulated_fields = {
         'slug': ['title', ]
     }
-    list_display = ('title', 'image_preview',
-                    'ordering', 'is_active', 'created_at')
+    list_display = ('title', 'image_preview', 'is_active', 'created_at')
     list_editable = ('is_active',)
 
     def image_preview(self, obj):
-        if obj.image_optimized:
-            return format_html('<img src="{}" width="70" />', obj.image_optimized.url)
+        if obj.image:
+            return format_html('<img src="{}" width="70" />', obj.image.url)
         return "-"
     image_preview.short_description = 'Preview'

@@ -4,9 +4,9 @@
   <!-- breadcrumb-area-start -->
   <div
     class="tp-breadcrumb-area tp-breadcrumb-ptb tp-breadcrumb-overly bg-position"
-    data-background="assets/img/breadcrumb/bg-7.jpg"
+    data-background="{{ pagebanner.image.url }}"
     style="
-      background-image: url(&quot;https://html.aqlova.com/turie-demo/turie/assets/img/breadcrumb/bg-7.jpg&quot;);
+      background-image: url({{ pagebanner.image.url }});
     "
   >
     <div class="container">
@@ -14,7 +14,7 @@
         <div class="col-12">
           <div class="tp-breadcrumb-wrap text-center">
             <h2 class="tp-breadcrumb-title fs-112 text-center mb-0">
-              Tour Guide
+              Our Team
             </h2>
           </div>
         </div>
@@ -27,17 +27,18 @@
   <div class="tp-team-area tp-team-ptb pt-140 pb-70">
     <div class="container">
       <div class="row">
-       
+       {% for team in teams %}
         <div class="col-xl-3 col-lg-4 col-md-6">
           <div class="tp-team-item mb-60">
             <div class="tp-team-thumb p-relative mb-25">
               <img
                 class="w-100"
-                src="https://html.aqlova.com/turie-demo/turie/assets/img/team/guide-2.jpg"
-                alt=""
+                src="{{ team.image.url }}"
+                alt="{{ team.name}}"
+                height="300px"
               />
               <div class="tp-team-social">
-                <a href="tour-guide.html#">
+                <a href="#">
                   <svg
                     width="12"
                     height="22"
@@ -51,7 +52,7 @@
                     ></path>
                   </svg>
                 </a>
-                <a href="tour-guide.html#">
+                <a href="#">
                   <svg
                     width="21"
                     height="19"
@@ -65,7 +66,7 @@
                     ></path>
                   </svg>
                 </a>
-                <a href="tour-guide.html#">
+                <a href="#">
                   <svg
                     width="22"
                     height="20"
@@ -87,57 +88,22 @@
                     ></path>
                   </svg>
                 </a>
-                <a href="tour-guide.html#">
-                  <svg
-                    width="21"
-                    height="21"
-                    viewBox="0 0 21 21"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <ellipse
-                      cx="10.25"
-                      cy="10.2492"
-                      rx="9.5"
-                      ry="9.4992"
-                      stroke="currentColor"
-                      stroke-width="1.5"
-                    ></ellipse>
-                    <path
-                      d="M19.7469 11.4511C18.8664 11.286 17.9608 11.2 17.0367 11.2C11.952 11.2 7.42951 13.8051 4.54688 17.8494"
-                      stroke="currentColor"
-                      stroke-width="1.5"
-                      stroke-linejoin="round"
-                    ></path>
-                    <path
-                      d="M16.9 3.59973C13.927 7.08349 9.4595 9.29925 4.46414 9.29925C3.18615 9.29925 1.94271 9.15422 0.75 8.88004"
-                      stroke="currentColor"
-                      stroke-width="1.5"
-                      stroke-linejoin="round"
-                    ></path>
-                    <path
-                      d="M12.7369 19.7499C12.9749 18.5967 13.1 17.4024 13.1 16.1789C13.1 10.1791 10.0926 4.88027 5.5 1.70142"
-                      stroke="currentColor"
-                      stroke-width="1.5"
-                      stroke-linejoin="round"
-                    ></path>
-                  </svg>
-                </a>
+               
               </div>
             </div>
             <div class="tp-team-content">
               <span class="tp-team-subtitle d-inline-block lh-1 mb-10"
-                >Tourist guide</span
+                >{{ team.designation }}</span
               >
               <h2 class="tp-team-title">
-                <a href="tour-guide-details.html" class="common-underline"
-                  >William Scott</a
+                <a href="{% url 'team_detail' team.slug %}" class="common-underline"
+                  >{{ team.name }}</a
                 >
               </h2>
             </div>
           </div>
         </div>
-        
+        {% endfor %}
         
       </div>
     </div>

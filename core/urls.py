@@ -8,5 +8,6 @@ urlpatterns = [
     path('why-to-choose-us/', views.whyus, name='whyus'),
     path('legal-documents/', views.legal, name='legal'),
     path('team/', include('team.urls')),
+    path('day-tour/', include('daytour.urls')),
     path('contact-us', views.contact, name='contact'),
 ]

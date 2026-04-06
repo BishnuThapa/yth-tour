@@ -1,5 +1,9 @@
 from django.shortcuts import render
 from slider.models import Slider
+from blog.models import Blog
+from about.models import AboutUs,WhyUs
+from legaldocument.models import Document
+
 # Create your views here.
 
 
@@ -11,33 +15,36 @@ def index(request):
     return render(request, 'index.html',context)
 
 def about(request):
-    # about = AboutUs.objects.first()
+    about = AboutUs.objects.first()
+    blogs = Blog.objects.filter(is_active=True).order_by('-created_at')[:3]
 
-    # context = {
-    #     'about': about,
+    context = {
+        'about': about,
+        'blogs': blogs,
 
-    # }
-    return render(request, 'about.html')
+    }
+    return render(request, 'about.html',context)
 
 
 def whyus(request):
-    # whyus = WhyUs.objects.first()
-    # context = {
-    #     'whyus': whyus,
+    whyus = WhyUs.objects.first()
+    context = {
+        'whyus': whyus,
 
-    # }
-    return render(request, 'why-us.html')
+    }
+    return render(request, 'why-us.html',context)
 
 
 def legal(request):
-    # legaldocs = Document.objects.all()
+    legaldocs = Document.objects.all()
 
-    # context = {
-    #     'legaldocs': legaldocs,
+    context = {
+        'legaldocs': legaldocs,
 
-    # }
-    return render(request, 'legal-documents.html')
+    }
+    return render(request, 'legal-documents.html',context)
 
 
 def contact(request):
+   
     return render(request, 'contact.html')

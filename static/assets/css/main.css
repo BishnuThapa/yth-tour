@@ -176,7 +176,7 @@ li,
 ---------------------------------*/
 body {
   font-family: var(--tp-ff-body);
-  font-size: 14px;
+  font-size: 18px;
   font-weight: normal;
   color: var(--tp-common-black);
   line-height: 26px;
@@ -2490,7 +2490,7 @@ input[type=color] {
   left: 0;
   transform: translateY(10px);
   background: var(--tp-common-white);
-  width: 220px;
+  min-width: 150px;
   padding: 18px 0;
   -webkit-transition: all 0.3s 0s ease-out;
   -moz-transition: all 0.3s 0s ease-out;

@@ -963,28 +963,9 @@
                       <li class="has-dropdown">
                         <a href="index-7.html#">Day Tours</a>
                         <ul class="sub-menu">
-                          <li><a href="about.html">About</a></li>
-                          <li><a href="career.html">Career</a></li>
-
-                          <li><a href="contact.html">Contact</a></li>
-                          <li>
-                            <a
-                              href="https://html.aqlova.com/turie-demo/turie/faq.html"
-                              >Faq</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="https://html.aqlova.com/turie-demo/turie/privacy-policy.html"
-                              >Privacy Policy</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="https://html.aqlova.com/turie-demo/turie/testimonial.html"
-                              >Testimonial</a
-                            >
-                          </li>
+                          {% for daytour in daytours %}
+                          <li><a href="{% url 'daytour_detail' slug=daytour.slug %}">{{ daytour.title }}</a></li>
+                          {% endfor %}
                         </ul>
                       </li>
                       <li class="">
@@ -992,9 +973,9 @@
                       </li>
 
                       <li class="has-dropdown">
-                        <a href="index-7.html#">Company</a>
+                        <a href="#">About</a>
                         <ul class="sub-menu">
-                          <li><a href="{% url 'about' %}">About</a></li>
+                          <li><a href="{% url 'about' %}">About us</a></li>
                           <li><a href="{% url 'team' %}">Our Team</a></li>
                           <li><a href="{% url 'whyus' %}">Why Choose Us</a></li>
                           <li>

@@ -1,0 +1,147 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+
+<main>
+  <!-- breadcrumb-area-start -->
+  <div
+    class="tp-breadcrumb-area tp-breadcrumb-ptb tp-breadcrumb-overly bg-position"
+    data-background="{{ pagebanner.image.url }}"
+    style="
+      background-image: url({{ pagebanner.image.url }});
+    "
+  >
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="tp-breadcrumb-wrap text-center">
+            <h2 class="tp-breadcrumb-title fs-112 text-center mb-0">
+              {{ team.name }}
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- breadcrumb-area-end -->
+
+  <!-- tp-team-area-start -->
+  <div class="tp-team-area tp-team-details-ptb pt-140">
+    <div class="container container-1350">
+      <div class="row">
+        <div class="col-lg-5">
+          <div class="tp-team-details-thumb mb-30">
+            <img
+              src="{{ team.image.url }}"
+              alt=""
+            />
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="tp-team-details-wrapper mr-115">
+            <div class="tp-team-details-text mb-35">
+              <span class="tp-team-details-subtitle mb-5 d-inline-block"
+                >{{ team.designation }}</span
+              >
+              <h2 class="tp-breadcrumb-title text-black mb-15 fw-600">
+                {{ team.name }}
+              </h2>
+              <p>
+                {{ team.description | safe }}
+              </p>
+            </div>
+            
+            <div
+              class="tp-team-details-info d-flex justify-content-between align-items-center mb-45"
+            >
+              <div class="tp-team-details-info-contact">
+                <a href="tel:0123456789">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                  >
+                    <path
+                      d="M2.43248 7.95965C1.76852 6.80251 1.44793 5.85764 1.25462 4.89985C0.968722 3.4833 1.62299 2.09956 2.70686 1.21663C3.16494 0.843468 3.69006 0.970963 3.96095 1.45668L4.57249 2.55324C5.05722 3.4224 5.29958 3.85698 5.25151 4.31771C5.20344 4.77845 4.87658 5.1537 4.22286 5.9042L2.43248 7.95965ZM2.43248 7.95965C3.7764 10.3018 5.88543 12.4109 8.23152 13.7557M8.23152 13.7557C9.38926 14.4193 10.3346 14.7397 11.2929 14.9329C12.7102 15.2187 14.0947 14.5647 14.978 13.4814C15.3514 13.0236 15.2238 12.4987 14.7379 12.228L13.6407 11.6168C12.7711 11.1323 12.3363 10.8901 11.8753 10.9381C11.4144 10.9862 11.0389 11.3128 10.288 11.9662L8.23152 13.7557Z"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                  +(302) 555-0107
+                </a>
+                <a href="mailto:turie@studio.com">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="17"
+                    height="14"
+                    viewBox="0 0 17 14"
+                    fill="none"
+                  >
+                    <path
+                      d="M2.58672 1H14.593C15.4184 1 16.0938 1.675 16.0938 2.5V11.5C16.0938 12.325 15.4184 13 14.593 13H2.58672C1.76129 13 1.08594 12.325 1.08594 11.5V2.5C1.08594 1.675 1.76129 1 2.58672 1Z"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M16.0938 2.5L8.58984 7.75L1.08594 2.5"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                  turie@studio.com
+                </a>
+              </div>
+              <div class="tp-team-details-social">
+                <a href="tour-guide-details.html#">
+                  <svg
+                    width="12"
+                    height="16"
+                    viewBox="0 0 12 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M1.57727 6.58333C0.892842 6.58333 0.75 6.71763 0.75 7.36111V8.52778C0.75 9.17126 0.892842 9.30556 1.57727 9.30556H3.23182V13.9722C3.23182 14.6157 3.37466 14.75 4.05909 14.75H5.71364C6.39807 14.75 6.54091 14.6157 6.54091 13.9722V9.30556H8.39871C8.9178 9.30556 9.05155 9.2107 9.19416 8.74145L9.5487 7.57478C9.79298 6.77095 9.64246 6.58333 8.75326 6.58333H6.54091V4.63889C6.54091 4.20933 6.91129 3.86111 7.36818 3.86111H9.72273C10.4072 3.86111 10.55 3.72681 10.55 3.08333V1.52778C10.55 0.884296 10.4072 0.75 9.72273 0.75H7.36818C5.08373 0.75 3.23182 2.49111 3.23182 4.63889V6.58333H1.57727Z"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                </a>
+                <a href="tour-guide-details.html#">
+                  <svg
+                    width="14"
+                    height="13"
+                    viewBox="0 0 14 13"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M4.41177 0H0L5.23083 6.87316L0.334618 12.6389H2.59681L6.29998 8.27809L9.58823 12.5988H14L8.6172 5.52593L8.62673 5.53813L13.2614 0.0802914H10.9992L7.55741 4.13336L4.41177 0ZM2.43522 1.20371H3.80866L11.5648 11.395H10.1913L2.43522 1.20371Z"
+                      fill="currentColor"
+                    ></path>
+                  </svg>
+                </a>
+                
+              </div>
+            </div>
+           
+          
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- tp-team-area-end -->
+
+</main>
+{% endblock content %}

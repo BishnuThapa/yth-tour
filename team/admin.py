@@ -16,7 +16,9 @@ from .models import *
 class TeamAdmin(admin.ModelAdmin):
     list_display = ['name', 'image_preview', 'designation', 'ordering']
     list_editable = ['designation', 'ordering']
-
+    prepopulated_fields = {
+        'slug': ['name', ]
+    }
     # def thumbnail(self, object):
     #     return format_html('<img src="{}" width="100" height="100" style="border-radius:10%;" />'.format(object.image.url))
     def image_preview(self, obj):

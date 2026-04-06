@@ -4,10 +4,17 @@ from .models import *
 
 
 def team(request):
-    # banner = Banner.objects.first()
-    # teams=Team.objects.all()
-    # context={
-    #     # 'banner':banner,
-    #     'teams':teams
-    # }
-    return render(request,'team.html')
+    
+    teams=Team.objects.all()
+    context={
+       
+        'teams':teams
+    }
+    return render(request,'team.html',context)
+
+def team_detail(request,slug):
+    team=Team.objects.get(slug=slug)
+    context={
+        'team':team
+    }
+    return render(request,'team_detail.html',context)

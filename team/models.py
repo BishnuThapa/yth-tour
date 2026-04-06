@@ -10,6 +10,7 @@ from imagekit.processors import ResizeToFit, Convert
 class Team(models.Model):
     image = models.ImageField(upload_to='team', blank=True, null=True)
     name = models.CharField(max_length=255, blank=True, null=True)
+    slug = models.SlugField(max_length=255, unique=True, null=True, blank=True)
     designation = models.CharField(max_length=255, blank=True, null=True)
     description = CKEditor5Field(config_name='extends')
     ordering = models.IntegerField()

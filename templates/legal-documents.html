@@ -1,12 +1,10 @@
-{% extends "base.html" %} 
-{% load static %}
-{% block content %}
+{% extends "base.html" %} {% load static %} {% block content %}
 
 <main>
   <!-- breadcrumb-area-start -->
   <div
     class="tp-breadcrumb-area tp-breadcrumb-ptb tp-breadcrumb-overly bg-position"
-    data-background="assets/img/breadcrumb/bg-9.html"
+    data-background="{{ pagebanner.image.url }}"
   >
     <div class="container">
       <div class="row">
@@ -34,81 +32,35 @@
                 data-wow-duration=".9s"
                 data-wow-delay=".4s"
               >
-               Legal documents
+                Legal documents
               </h2>
-              
             </div>
-           
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-12">
-          <div class="tab-content p-relative">
-            <div class="tab-pane active" id="london" role="tabpanel">
-              <div class="row">
-                <div class="col-xl-4 col-lg-6 col-md-6">
-                  <div class="tp-blog-item tp-blog-3-item mb-30">
-                    <div class="tp-blog-thumb fix mb-30">
-                      <a href="blog-details.html" class="d-block">
-                        <img
-                          class="w-100"
-                          src="{% static 'assets/img/blog/three/thumb.html'%}"
-                          alt=""
-                        />
-                      </a>
-                    </div>
-                    <div class="tp-blog-content">
-                     
-                      <h3 class="tp-blog-title fw-600">
-                        <a href="blog-details.html"
-                          >Company Registration</a
-                        >
-                      </h3>
-                    </div>
-                  </div>
-                </div>
-               
-               
-              </div>
+        {% for doc in legaldocs %}
+        <div class="col-xl-4 col-lg-6 col-md-6">
+          <div class="tp-blog-item tp-blog-3-item mb-30">
+            <!-- LIGHTBOX IMAGE -->
+            <div class="tp-blog-thumb fix mb-30">
+              <a href="{{ doc.image.url }}" class="popup-image d-block">
+                <img
+                  class="w-100"
+                  src="{{ doc.image.url }}"
+                  alt="{{ doc.title }}"
+                />
+              </a>
             </div>
-            <div class="tab-pane" id="bangkok" role="tabpanel">
-              <div class="row">
-                <div class="col-xl-4 col-lg-6 col-md-6">
-                  <div class="tp-blog-item tp-blog-3-item mb-30">
-                    <div class="tp-blog-thumb fix mb-30">
-                      <a href="blog-details.html" class="d-block">
-                        <img
-                          class="w-100"
-                          src="assets/img/blog/three/thumb-3.html"
-                          alt=""
-                        />
-                      </a>
-                    </div>
-                    <div class="tp-blog-content">
-                      <div
-                        class="tp-blog-meta-wrap d-flex flex-wrap align-items-center mb-15"
-                      >
-                        <span class="tp-blog-category">Heritage</span>
-                        <div class="tp-blog-meta">
-                          <span>Dec 12,2025</span>
-                          <span>Admin</span>
-                        </div>
-                      </div>
-                      <h3 class="tp-blog-title fw-600">
-                        <a href="blog-details.html"
-                          >Historic Architecture with Golden Artistic Details</a
-                        >
-                      </h3>
-                    </div>
-                  </div>
-                </div>
-                
-              </div>
+
+            <div class="tp-blog-content">
+              <h3 class="tp-blog-title fw-600">
+                <a href="#">{{ doc.title }}</a>
+              </h3>
             </div>
-            
           </div>
         </div>
+        {% endfor %}
       </div>
     </div>
   </div>

@@ -1,8 +1,9 @@
 from .models import *
+from daytour.models import *
 # from about.models import *
 # from settings.models import *
 # from page.models import *
-from settings.models import Favicon, Logo, SiteInfo
+from settings.models import Favicon, Logo, SiteInfo,PageBanner
 # , CompanyProfile, SocialLinks, PageBanner, Seo as DefaultSEO
 
 
@@ -10,9 +11,10 @@ def default(request):
     favicon = Favicon.objects.first()
     logo = Logo.objects.first()
     site_info = SiteInfo.objects.first()
+    pagebanner = PageBanner.objects.first()
+    daytours=DayTour.objects.all().filter(is_active=True)
     # defaultseo = DefaultSEO.objects.first()
 
-    # pagebanner = PageBanner.objects.first()
     # destinations = Destination.objects.prefetch_related(
     #     'activities').filter(is_active=True)
     # styles = Style.objects.all()
@@ -38,6 +40,8 @@ def default(request):
         'favicon': favicon,
         'logo': logo,
         'site_info': site_info,
+        'pagebanner': pagebanner,
+        'daytours': daytours,
         # 'styles': styles,
         # 'activities': activities,
         # 'destinations': destinations,
@@ -45,7 +49,6 @@ def default(request):
         # 'defaultseo': defaultseo,
         
         # 'social_links': social_links,
-        # 'pagebanner': pagebanner,
         # 'mountaineering': mountaineering,
         # 'heightcat': heightcat,
         # 'trekking': trekking,
