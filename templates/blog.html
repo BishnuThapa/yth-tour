@@ -117,12 +117,13 @@
                   {% endif %}
 
                   <!-- Page Numbers -->
-                  {% for num in blogs.paginator.page_range %} {% if blogs.number
-                  == num %}
+                  {% for num in blogs.paginator.page_range %} 
+                  {% if blogs.number == num %}
                   <li><span class="current">{{ num }}</span></li>
                   {% else %}
                   <li><a href="?page={{ num }}">{{ num }}</a></li>
-                  {% endif %} {% endfor %}
+                  {% endif %} 
+                  {% endfor %}
 
                   <!-- Next -->
                   {% if blogs.has_next %}

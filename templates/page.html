@@ -1,0 +1,48 @@
+{% extends "base.html" %} {% block content %}
+
+<main>
+  <!-- breadcrumb-area-start -->
+  <div
+    class="tp-breadcrumb-area tp-breadcrumb-ptb tp-breadcrumb-overly bg-position"
+    data-background="{{ pagebanner.image.url }}"
+  >
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="tp-breadcrumb-wrap text-center">
+            <h2 class="tp-breadcrumb-title fs-112 text-center mb-0">
+              {{ page.title }}
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- breadcrumb-area-end -->
+  <!-- tp-blog-details-area-start -->
+  <div class="tp-blog-area tp-tour-ptb-2 pt-80 pb-100">
+    <div class="container">
+      <div class="row">
+        <div class="col-xxl-12 col-xl-12">
+          <div class="postbox-details-main-wrap mb-40 pr-135">
+            <div class="postbox-details-info-wrap mb-60">
+              <div
+                class="tp-blog-meta-wrap d-flex flex-wrap align-items-center mb-15"
+              ></div>
+              <h3 class="postbox-title mb-30">
+                {{ page.title }}
+              </h3>
+            </div>
+            <div class="postbox-wrapper">
+              <div class="postbox-details-text mb-45">
+                <p>{{ page.description|safe }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- tp-tour-details-area-end -->
+</main>
+{% endblock content %}

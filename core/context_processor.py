@@ -2,7 +2,7 @@ from .models import *
 from daytour.models import *
 # from about.models import *
 # from settings.models import *
-# from page.models import *
+from page.models import Page, Seo
 from settings.models import Favicon, Logo, SiteInfo,PageBanner
 # , CompanyProfile, SocialLinks, PageBanner, Seo as DefaultSEO
 
@@ -13,13 +13,14 @@ def default(request):
     site_info = SiteInfo.objects.first()
     pagebanner = PageBanner.objects.first()
     daytours=DayTour.objects.all().filter(is_active=True)
+    pages = Page.objects.all().filter(is_active=True)
+    destinations=Destination.objects.all().filter(is_active=True).order_by('ordering')
     # defaultseo = DefaultSEO.objects.first()
 
     # destinations = Destination.objects.prefetch_related(
     #     'activities').filter(is_active=True)
     # styles = Style.objects.all()
     # activities = Activity.objects.filter(destination__title="Nepal").distinct()
-    # pages = Page.objects.all().filter(is_active=True)
     # social_links = SocialLinks.objects.first()
 
     # defaultseo = DefaultSEO.objects.first()
@@ -42,10 +43,10 @@ def default(request):
         'site_info': site_info,
         'pagebanner': pagebanner,
         'daytours': daytours,
+        'pages': pages,
         # 'styles': styles,
         # 'activities': activities,
-        # 'destinations': destinations,
-        # 'pages': pages,
+        'destinations': destinations,
         # 'defaultseo': defaultseo,
         
         # 'social_links': social_links,

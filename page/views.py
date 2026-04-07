@@ -4,11 +4,11 @@ from .models import *
 
 
 def page(request, slug):
-    # banner=Banner.objects.first()
+    
     seo=Seo.objects.first()
     page = get_object_or_404(Page, slug=slug)
     context = {
-        # 'banner':banner,
+        
         'seo': seo,
         'page': page,
     }

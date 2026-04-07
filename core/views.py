@@ -1,9 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from slider.models import Slider
 from blog.models import Blog
 from about.models import AboutUs,WhyUs
 from legaldocument.models import Document
-
+from .models import Destination
+from django.db.models import Count, Q
 # Create your views here.
 
 
@@ -43,6 +44,31 @@ def legal(request):
 
     }
     return render(request, 'legal-documents.html',context)
+
+       
+def destination(request):
+    # destinations = Destination.objects.all()
+    destinations = Destination.objects.annotate(
+        tour_count=Count('tours')).order_by('id')
+    context = {
+        'destinations': destinations,
+    }
+    return render(request, 'destination.html', context)
+
+
+def destination_detail(request, slug):
+    destination = get_object_or_404(Destination, slug=slug)
+    # tours = Tour.objects.filter(
+    #     destination__title=destination)
+    context = {
+        'destination': destination,
+        # 'tours': tours,
+
+        # 'categories': categories,
+        # 'related_products': related_products
+    }
+    return render(request, 'destination-detail.html', context)
+
 
 
 def contact(request):
