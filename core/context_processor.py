@@ -3,7 +3,7 @@ from daytour.models import *
 # from about.models import *
 # from settings.models import *
 from page.models import Page, Seo
-from settings.models import Favicon, Logo, SiteInfo,PageBanner
+from settings.models import Favicon, Logo, SiteInfo,PageBanner,SocialLinks
 # , CompanyProfile, SocialLinks, PageBanner, Seo as DefaultSEO
 
 
@@ -21,7 +21,7 @@ def default(request):
     #     'activities').filter(is_active=True)
     # styles = Style.objects.all()
     # activities = Activity.objects.filter(destination__title="Nepal").distinct()
-    # social_links = SocialLinks.objects.first()
+    social_links = SocialLinks.objects.first()
 
     # defaultseo = DefaultSEO.objects.first()
     # mountaineering = Tour.objects.all().filter(activity__title='Mountaineering')
@@ -49,7 +49,7 @@ def default(request):
         'destinations': destinations,
         # 'defaultseo': defaultseo,
         
-        # 'social_links': social_links,
+        'social_links': social_links,
         # 'mountaineering': mountaineering,
         # 'heightcat': heightcat,
         # 'trekking': trekking,
