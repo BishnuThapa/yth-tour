@@ -14,7 +14,7 @@ def default(request):
     pagebanner = PageBanner.objects.first()
     daytours=DayTour.objects.all().filter(is_active=True)
     pages = Page.objects.all().filter(is_active=True)
-    destinations=Destination.objects.all().filter(is_active=True).order_by('ordering')
+    destinations=Destination.objects.all().filter(is_active=True).order_by('ordering')[:3]
     # defaultseo = DefaultSEO.objects.first()
 
     # destinations = Destination.objects.prefetch_related(
