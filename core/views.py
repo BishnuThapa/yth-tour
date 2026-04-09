@@ -1,19 +1,20 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render, get_object_or_404
 from slider.models import Slider
 from blog.models import Blog
-from about.models import AboutUs,WhyUs
+from about.models import AboutUs, WhyUs
 from legaldocument.models import Document
-from .models import Destination
+from .models import Destination, Tour
 from django.db.models import Count, Q
 # Create your views here.
 
 
 def index(request):
     banner = Slider.objects.first()
-    context={
+    context = {
         'banner': banner,
     }
-    return render(request, 'index.html',context)
+    return render(request, 'index.html', context)
+
 
 def about(request):
     about = AboutUs.objects.first()
@@ -24,7 +25,7 @@ def about(request):
         'blogs': blogs,
 
     }
-    return render(request, 'about.html',context)
+    return render(request, 'about.html', context)
 
 
 def whyus(request):
@@ -33,7 +34,7 @@ def whyus(request):
         'whyus': whyus,
 
     }
-    return render(request, 'why-us.html',context)
+    return render(request, 'why-us.html', context)
 
 
 def legal(request):
@@ -43,9 +44,9 @@ def legal(request):
         'legaldocs': legaldocs,
 
     }
-    return render(request, 'legal-documents.html',context)
+    return render(request, 'legal-documents.html', context)
 
-       
+
 def destination(request):
     # destinations = Destination.objects.all()
     destinations = Destination.objects.annotate(
@@ -70,7 +71,22 @@ def destination_detail(request, slug):
     return render(request, 'destination-detail.html', context)
 
 
+def trip(request, slug):
+    tour = get_object_or_404(Tour, slug=slug)
+    # seo = Seo.objects.first()
+    # featured_tours = Tour.objects.all().filter(is_featured=True)[:4]
+    # related_products = Tour.objects.filter(
+    #     activity=tour.activity).exclude(slug=slug)[:6]
+    context = {
+        'tour': tour,
+        # 'seo': seo,
+        # 'related_products': related_products,
+        # 'featured_tours': featured_tours
+    }
+
+    return render(request, 'trip.html', context)
+
 
 def contact(request):
-   
+
     return render(request, 'contact.html')

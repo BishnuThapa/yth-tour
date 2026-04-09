@@ -18,11 +18,16 @@
       rel="stylesheet"
       href="{% static 'assets/css/magnific-popup.css' %}"
     />
-    {% comment %} <link
+    {% comment %}
+    <link
       rel="stylesheet"
       href="{% static 'assets/css/font-awesome-pro.css' %}"
-    /> {% endcomment %}
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    />
+    {% endcomment %}
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="{% static 'assets/css/daterangepicker.css' %}"
@@ -668,16 +673,26 @@
                     <ul>
                       {% for dest in destinations %}
                       <li class="has-dropdown">
-                        <a href="{% url 'destination-detail' slug=dest.slug %}"
-                          >{{ dest.title }}</a
-                        >
+                        <a href="{% url 'destination-detail' slug=dest.slug %}">
+                          {{ dest.title }}
+                        </a>
+
                         <ul class="sub-menu">
                           <li>
                             <a
                               href="{% url 'destination-detail' slug=dest.slug %}"
-                              >Tour Grid</a
                             >
+                              View All Tours
+                            </a>
                           </li>
+
+                          {% for tour in dest.tours.all %}
+                          <li>
+                            <a href="{% url 'package' tour.slug %}"> {{ tour.title }} </a>
+                          </li>
+                          {% empty %}
+                          <li><a href="#">No tours available</a></li>
+                          {% endfor %}
                         </ul>
                       </li>
                       {% endfor %}
@@ -857,7 +872,9 @@
                   data-wow-duration=".9s"
                   data-wow-delay=".6s"
                 >
-                  <h3 class="tp-footer-widget-title fw-600 mb-15">Activities</h3>
+                  <h3 class="tp-footer-widget-title fw-600 mb-15">
+                    Activities
+                  </h3>
                   <div class="tp-footer-widget-menu">
                     <ul>
                       <li><a href="index.html#">Tour Packages</a></li>
@@ -1118,8 +1135,8 @@
               <div class="col-lg-5">
                 <div class="tp-copyright-text">
                   <p class="tp-ff-inter mb-5">
-                    {% now "Y" %} <a href="#">Gopaleswor Tour and Travel </a>© All rights
-                    reserved
+                    {% now "Y" %} <a href="#">Gopaleswor Tour and Travel </a>©
+                    All rights reserved
                   </p>
                 </div>
               </div>

@@ -15,4 +15,7 @@ urlpatterns = [
     path('page/', include('page.urls')),
     path('day-tour/', include('daytour.urls')),
     path('contact-us', views.contact, name='contact'),
+
+    path('trip/<slug:slug>/', views.trip, name='package'),
+
 ]

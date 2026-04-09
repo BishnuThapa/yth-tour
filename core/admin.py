@@ -12,13 +12,13 @@ class Gallery(admin.TabularInline):
     extra = 1
 
 
-class Itinerary(admin.StackedInline):
+class Itinerary(admin.TabularInline):
     model = Itinerary
-    extra = 0
+    extra = 1
 
 class Faq(admin.TabularInline):
     model = Faq
-    extra = 0
+    extra = 1
 
 
 class Seo(admin.TabularInline):
@@ -96,8 +96,11 @@ class TourAdmin(admin.ModelAdmin):
     }
     inlines = (Itinerary, Gallery, Faq, Seo, Departure)
 
-    def thumbnail(self, object):
-        return format_html('<img src="{}" width="100" height="100" style="border-radius:10%;" />'.format(object.image.url))
+    def thumbnail(self, obj):
+        if obj.image:
+            return format_html('<img src="{}" width="70" />', obj.image.url)
+        return "-"
+    thumbnail.short_description = 'Preview'
 
 
 # @admin.register(TourBooking)
