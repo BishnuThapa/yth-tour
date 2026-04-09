@@ -82,7 +82,6 @@ class Activity(models.Model):
 class Style(models.Model):
     title = models.CharField(max_length=255, blank=True, null=True)
     slug = models.SlugField(max_length=255, unique=True, blank=True, null=True)
-    icon = models.ImageField(upload_to='travelstyle', null=True, blank=True)
     image = models.ImageField(upload_to='travelstyle')
     # destination = models.ForeignKey(Destination, on_delete=models.CASCADE)
     description = CKEditor5Field(config_name='extends', null=True, blank=True)
@@ -290,3 +289,57 @@ class Departure(models.Model):
     class Meta:
         verbose_name = "Fixed Departure"
         verbose_name_plural = "Fixed Departure"
+
+
+class CustomizeTrip(models.Model):
+    # Step 1: Group Size
+    TRAVEL_TYPE_CHOICES = [
+        ("solo", "Travelling Solo"),
+        ("couple", "Travelling Couple"),
+        ("family", "Family Travelling"),
+        ("group", "Group Travelling"),
+    ]
+    travel_type = models.CharField(max_length=20, choices=TRAVEL_TYPE_CHOICES)
+    number_of_people = models.PositiveIntegerField(null=True, blank=True)
+
+    # Step 2: Travel Date
+    DATE_TYPE_CHOICES = [
+        ("have-date", "I have My Date"),
+        ("approx-date", "I have Approx. Date"),
+        ("no-date", "Still Planning"),
+    ]
+    date_type = models.CharField(max_length=20, choices=DATE_TYPE_CHOICES)
+    travel_date = models.DateField(null=True, blank=True)
+
+    # Step 3: Trip Choice
+    TRIP_CHOICE_OPTIONS = [
+        ("preferred", "I have my preferred trip"),
+        ("expert-help", "Need Expert Help"),
+    ]
+    trip_choice = models.CharField(max_length=20, choices=TRIP_CHOICE_OPTIONS)
+    trip_selected = models.CharField(max_length=100, null=True, blank=True)
+    destination = models.CharField(max_length=150, null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
+
+    # Step 4: Personal Information
+    MEMBER_CHOICES = [
+        ("yes", "Yes"),
+        ("no", "No"),
+    ]
+    is_member = models.CharField(
+        max_length=3, choices=MEMBER_CHOICES, default="no")
+
+    full_name = models.CharField(max_length=150)
+    email = models.EmailField()
+    phone = models.CharField(max_length=30)
+    country = models.CharField(max_length=100)
+
+    # System fields
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Inquiry from {self.full_name} ({self.email})"
+
+
+class TravellersChoice(models.Model):
+    tour = models.ManyToManyField(Tour)
