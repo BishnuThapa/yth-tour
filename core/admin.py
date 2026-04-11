@@ -14,11 +14,11 @@ class Gallery(admin.TabularInline):
 
 class Itinerary(admin.TabularInline):
     model = Itinerary
-    extra = 1
+    extra = 0
 
 class Faq(admin.TabularInline):
     model = Faq
-    extra = 1
+    extra = 0
 
 
 class Seo(admin.TabularInline):

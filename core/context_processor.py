@@ -16,7 +16,7 @@ def default(request):
     pages = Page.objects.all().filter(is_active=True)
     destinations = Destination.objects.filter(is_active=True)\
         .order_by('ordering')[:3]\
-        .prefetch_related('tours')
+        .prefetch_related('tours')[:10]
     # defaultseo = DefaultSEO.objects.first()
 
     # destinations = Destination.objects.prefetch_related(

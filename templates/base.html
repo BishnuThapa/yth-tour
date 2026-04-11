@@ -678,6 +678,15 @@
                         </a>
 
                         <ul class="sub-menu">
+                          {% for tour in dest.tours.all %}
+                          <li>
+                            <a href="{% url 'package' tour.slug %}">
+                              {{ tour.title }}
+                            </a>
+                          </li>
+                          {% empty %}
+                          <li><a href="#">No tours available</a></li>
+                          {% endfor %}
                           <li>
                             <a
                               href="{% url 'destination-detail' slug=dest.slug %}"
@@ -685,14 +694,6 @@
                               View All Tours
                             </a>
                           </li>
-
-                          {% for tour in dest.tours.all %}
-                          <li>
-                            <a href="{% url 'package' tour.slug %}"> {{ tour.title }} </a>
-                          </li>
-                          {% empty %}
-                          <li><a href="#">No tours available</a></li>
-                          {% endfor %}
                         </ul>
                       </li>
                       {% endfor %}

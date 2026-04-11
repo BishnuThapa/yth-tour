@@ -8,9 +8,13 @@
         <div class="col-12">
           <nav class="breadcrumbs">
             <ul>
-              <li><a href="/">Home</a></li>
-              <li><a href="/">Day Tour</a></li>
-              <li>{{ daytour.title }}</li>
+              <span><a href="/">Home</a></span>
+              <i class="fa-solid fa-chevron-right"></i>
+              &nbsp;
+              <span><a href="{% url 'daytour' %}">Day Tour</a></span>
+              <i class="fa-solid fa-chevron-right"></i>
+              &nbsp;
+              <span>{{ daytour.title }}</span>
             </ul>
           </nav>
         </div>

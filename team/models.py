@@ -12,6 +12,8 @@ class Team(models.Model):
     name = models.CharField(max_length=255, blank=True, null=True)
     slug = models.SlugField(max_length=255, unique=True, null=True, blank=True)
     designation = models.CharField(max_length=255, blank=True, null=True)
+    phone = models.CharField(max_length=255, blank=True, null=True)
+    email = models.EmailField(max_length=255, blank=True, null=True)
     description = CKEditor5Field(config_name='extends')
     ordering = models.IntegerField()
 

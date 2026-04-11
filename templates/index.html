@@ -29,7 +29,7 @@
                 data-wow-duration=".9s"
                 data-wow-delay=".5s"
               >
-               {{ banner.sub_title }}
+                {{ banner.sub_title }}
               </p>
               <p
                 class="tp-hero-6-dec fw-500 text-white wow fadeInUp"
@@ -73,7 +73,6 @@
                         </svg>
                       </span>
                       <div>
-                       
                         <input
                           class="tp-input"
                           type="text"
@@ -249,11 +248,10 @@
                       </div>
                     </div>
                   </div>
-                 
+
                   <div
                     class="tp-booking-location tp-booking-col-3 tp-booking-nohide p-relative"
                   >
-                   
                     <div
                       class="tp-booking-location-list tp-booking-toggle-active"
                     >
@@ -342,15 +340,125 @@
   </div>
   <!-- tp-hero-area-end -->
 
-
-  <!-- tp-destination-area-start -->
-  <div class="tp-destination-area tp-section-pt pt-95">
+  <!-- tp-chose-area-start -->
+  <div class="tp-chose-area pt-130 tp-section-pt">
     <div class="container">
+      <div class="row align-items-end">
+        <div class="col-xl-7">
+          <div class="tp-chose-two-section-title p-relative mb-45">
+            <span
+              class="tp-section-two-subtitle d-inline-block mb-10 wow fadeInUp"
+              data-wow-duration=".9s"
+              data-wow-delay=".3s"
+              >Why Choose Us</span
+            >
+            <h2
+              class="tp-section-title fw-600 mb-10 wow fadeInUp"
+              data-wow-duration=".9s"
+              data-wow-delay=".4s"
+            >
+              Travel destinations<br />
+              across the globe.
+            </h2>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div
+            class="tp-chose-two-section-title mb-50 wow fadeInUp"
+            data-wow-duration=".9s"
+            data-wow-delay=".4s"
+          >
+            <h2
+              class="tp-section-title fw-600 mb-10 wow fadeInUp"
+              data-wow-duration=".9s"
+              data-wow-delay=".4s"
+            >
+              Tripadvisor
+            </h2>
+          </div>
+        </div>
+      </div>
       <div class="row">
+        <div class="col-xl-7">
+          <div
+            class="tp-chose-two-thumb hover-thumb-wrap mb-30 wow fadeInUp"
+            data-wow-duration=".9s"
+            data-wow-delay=".5s"
+          >
+            <p>{{ about.description | safe | truncatechars:600 }}</p>
+            <a href="{% url 'about' %}" class="tp-btn-solid mt-20"
+              >Read More
+              <svg
+                width="11"
+                height="11"
+                viewBox="0 0 11 11"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9.89648 5.06116H0.749851"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+                <path
+                  d="M7.41414 10.75C7.41414 10.75 12.4141 7.06751 12.4141 5.74994C12.4141 4.43236 7.41406 0.75 7.41406 0.75"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="col-xl-5">
+          <div class="tp-chose-two-wrap mb-30">
+            <div
+              class="tp-chose-two-item tp-about-two-service icon-animetion-wrap mb-30 d-flex wow fadeInUp"
+              data-wow-duration=".9s"
+              data-wow-delay=".7s"
+              data-bg-color="#ecf8f1"
+              style="background-color: rgb(236, 248, 241)"
+            >
+              <span class="tp-about-two-service-icon mr-25">
+                <svg
+                  class="icon-animetion-icon"
+                  width="28"
+                  height="27"
+                  viewBox="0 0 28 27"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M28 14.6739C28 13.0557 26.6916 11.7391 25.0833 11.7391H23.9167V9.97826C23.9167 4.47613 19.4682 0 14 0C8.53183 0 4.08333 4.47613 4.08333 9.97826V11.7391H2.91667C1.30842 11.7391 0 13.0557 0 14.6739V18.1957C0 19.8139 1.30842 21.1304 2.91667 21.1304H6.41667V11.7391H5.25V9.97826C5.25 5.12354 9.17525 1.17391 14 1.17391C18.8247 1.17391 22.75 5.12354 22.75 9.97826V11.7391H21.5833V21.1304H22.75V24.0652C22.75 25.036 21.9648 25.8261 21 25.8261H15.1667V27H21C22.6082 27 23.9167 25.6835 23.9167 24.0652V21.1304H25.0833C26.6916 21.1304 28 19.8139 28 18.1957V14.6739ZM5.25 19.9565H2.91667C1.95183 19.9565 1.16667 19.1665 1.16667 18.1957V14.6739C1.16667 13.7031 1.95183 12.913 2.91667 12.913H5.25V19.9565ZM26.8333 18.1957C26.8333 19.1665 26.0482 19.9565 25.0833 19.9565H22.75V12.913H25.0833C26.0482 12.913 26.8333 13.7031 26.8333 14.6739V18.1957Z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
+              </span>
+              <div>
+                <h2 class="tp-about-two-service-title">24/7 Travel Support</h2>
+                <p class="tp-about-two-service-dec">
+                  Enjoy world-class travel experiences<br />
+                  without breaking your budget.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- tp-chose-area-end -->
+  <!-- tp-destination-area-start -->
+  <div class="tp-destination-area">
+    <div class="container container-1350">
+      <div class="row gx-25">
         <div class="col-lg-12">
           <div class="tp-destinatin-6-title-wrap text-center mb-50">
             <span
-              class="tp-section-two-subtitle d-inline-block mb-10 wow fadeInUp"
+              class="tp-section-two-subtitle d-inline-block mt-50 mb-10 wow fadeInUp"
               data-wow-duration=".9s"
               data-wow-delay=".3s"
               >Vacation Packages</span
@@ -363,341 +471,57 @@
               Trending destination
             </h2>
           </div>
-          <div
-            class="swiper tp-destination-8-slider mb-50 swiper-initialized swiper-horizontal swiper-pointer-events swiper-backface-hidden"
-          >
+        </div>
+        {% for dest in all_destinations %}
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+          <div class="tp-tour-dayfilter-item tp-destination-item fix mb-25">
             <div
-              class="swiper-wrapper"
-              id="swiper-wrapper-107be7488cb41ba39"
-              aria-live="polite"
-              style="
-                transition-duration: 0ms;
-                transform: translate3d(-92px, 0px, 0px);
-              "
+              class="tp-destination-thumb p-relative tp-tour-dayfilter-thumb fix"
             >
-              <div
-                class="swiper-slide swiper-slide-duplicate swiper-slide-prev"
-                data-swiper-slide-index="7"
-                role="group"
-                aria-label="8 / 8"
-                style="width: 68px; margin-right: 24px"
-              >
-                <div>
-                  <a
-                    href="city-details.html"
-                    class="tp-destination-6-item d-inline-flex align-items-center"
+              <img
+                src="{{ dest.image.url }}"
+                alt="destination"
+                loading="lazy"
+                height="250"
+              />
+              <div class="tp-destination-content">
+                <a
+                  href="{% url 'destination-detail' slug=dest.slug %}"
+                  class="tp-destination-title common-underline"
+                  >{{ dest.title }}</a
+                >
+                <a
+                  href="{% url 'destination-detail' slug=dest.slug %}"
+                  class="tp-destination-btn"
+                >
+                  <svg
+                    width="14"
+                    height="12"
+                    viewBox="0 0 14 12"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    <div class="tp-destination-6-thumb mr-15">
-                      <img
-                        src="https://html.aqlova.com/turie-demo/turie/assets/img/destination/six/thumb-8.jpg"
-                        alt=""
-                      />
-                    </div>
-                    <div class="tp-destination-6-content">
-                      <h2 class="tp-destination-6-title fw-600 mb-0">Greece</h2>
-                      <span class="tp-destination-6-duration">17 Tour</span>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div
-                class="swiper-slide swiper-slide-active"
-                data-swiper-slide-index="0"
-                role="group"
-                aria-label="1 / 8"
-                style="width: 68px; margin-right: 24px"
-              >
-                <div>
-                  <a
-                    href="city-details.html"
-                    class="tp-destination-6-item d-inline-flex align-items-center"
-                  >
-                    <div class="tp-destination-6-thumb mr-15">
-                      <img
-                        src="{% static 'assets/img/destination/six/thumb.jpg' %}"
-                        alt=""
-                      />
-                    </div>
-                    <div class="tp-destination-6-content">
-                      <h2 class="tp-destination-6-title fw-600 mb-0">
-                        Thailand
-                      </h2>
-                      <span class="tp-destination-6-duration">08 Tour</span>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div
-                class="swiper-slide swiper-slide-next"
-                data-swiper-slide-index="1"
-                role="group"
-                aria-label="2 / 8"
-                style="width: 68px; margin-right: 24px"
-              >
-                <div>
-                  <a
-                    href="city-details.html"
-                    class="tp-destination-6-item d-inline-flex align-items-center"
-                  >
-                    <div class="tp-destination-6-thumb mr-15">
-                      <img
-                        src="{% static 'assets/img/destination/six/thumb-2.jpg' %}"
-                        alt=""
-                      />
-                    </div>
-                    <div class="tp-destination-6-content">
-                      <h2 class="tp-destination-6-title fw-600 mb-0">
-                        Switzerland
-                      </h2>
-                      <span class="tp-destination-6-duration">10 Tour</span>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div
-                class="swiper-slide"
-                data-swiper-slide-index="2"
-                role="group"
-                aria-label="3 / 8"
-                style="width: 68px; margin-right: 24px"
-              >
-                <div>
-                  <a
-                    href="city-details.html"
-                    class="tp-destination-6-item d-inline-flex align-items-center"
-                  >
-                    <div class="tp-destination-6-thumb mr-15">
-                      <img
-                        src="{% static 'assets/img/destination/six/thumb-3.jpg' %}"
-                        alt=""
-                      />
-                    </div>
-                    <div class="tp-destination-6-content">
-                      <h2 class="tp-destination-6-title fw-600 mb-0">
-                        Australia
-                      </h2>
-                      <span class="tp-destination-6-duration">16 Tour</span>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div
-                class="swiper-slide"
-                data-swiper-slide-index="3"
-                role="group"
-                aria-label="4 / 8"
-                style="width: 68px; margin-right: 24px"
-              >
-                <div>
-                  <a
-                    href="city-details.html"
-                    class="tp-destination-6-item d-inline-flex align-items-center"
-                  >
-                    <div class="tp-destination-6-thumb mr-15">
-                      <img
-                        src="{% static 'assets/img/destination/six/thumb-4.jpg' %}"
-                        alt=""
-                      />
-                    </div>
-                    <div class="tp-destination-6-content">
-                      <h2 class="tp-destination-6-title fw-600 mb-0">
-                        Indonesia
-                      </h2>
-                      <span class="tp-destination-6-duration">05 Tour</span>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div
-                class="swiper-slide"
-                data-swiper-slide-index="4"
-                role="group"
-                aria-label="5 / 8"
-                style="width: 68px; margin-right: 24px"
-              >
-                <div>
-                  <a
-                    href="city-details.html"
-                    class="tp-destination-6-item d-inline-flex align-items-center"
-                  >
-                    <div class="tp-destination-6-thumb mr-15">
-                      <img
-                        src="{% static 'assets/img/destination/six/thumb-5.jpg' %}"
-                        alt=""
-                      />
-                    </div>
-                    <div class="tp-destination-6-content">
-                      <h2 class="tp-destination-6-title fw-600 mb-0">Canada</h2>
-                      <span class="tp-destination-6-duration">24 Tour</span>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div
-                class="swiper-slide"
-                data-swiper-slide-index="5"
-                role="group"
-                aria-label="6 / 8"
-                style="width: 68px; margin-right: 24px"
-              >
-                <div>
-                  <a
-                    href="city-details.html"
-                    class="tp-destination-6-item d-inline-flex align-items-center"
-                  >
-                    <div class="tp-destination-6-thumb mr-15">
-                      <img
-                        src="{% static 'assets/img/destination/six/thumb-6.jpg' %}"
-                        alt=""
-                      />
-                    </div>
-                    <div class="tp-destination-6-content">
-                      <h2 class="tp-destination-6-title fw-600 mb-0">
-                        Maldives
-                      </h2>
-                      <span class="tp-destination-6-duration">16 Tour</span>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div
-                class="swiper-slide"
-                data-swiper-slide-index="6"
-                role="group"
-                aria-label="7 / 8"
-                style="width: 68px; margin-right: 24px"
-              >
-                <div>
-                  <a
-                    href="city-details.html"
-                    class="tp-destination-6-item d-inline-flex align-items-center"
-                  >
-                    <div class="tp-destination-6-thumb mr-15">
-                      <img
-                        src="https://html.aqlova.com/turie-demo/turie/assets/img/destination/six/thumb-7.jpg"
-                        alt=""
-                      />
-                    </div>
-                    <div class="tp-destination-6-content">
-                      <h2 class="tp-destination-6-title fw-600 mb-0">Turkey</h2>
-                      <span class="tp-destination-6-duration">08 Tour</span>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div
-                class="swiper-slide swiper-slide-duplicate-prev"
-                data-swiper-slide-index="7"
-                role="group"
-                aria-label="8 / 8"
-                style="width: 68px; margin-right: 24px"
-              >
-                <div>
-                  <a
-                    href="city-details.html"
-                    class="tp-destination-6-item d-inline-flex align-items-center"
-                  >
-                    <div class="tp-destination-6-thumb mr-15">
-                      <img
-                        src="https://html.aqlova.com/turie-demo/turie/assets/img/destination/six/thumb-8.jpg"
-                        alt=""
-                      />
-                    </div>
-                    <div class="tp-destination-6-content">
-                      <h2 class="tp-destination-6-title fw-600 mb-0">Greece</h2>
-                      <span class="tp-destination-6-duration">17 Tour</span>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div
-                class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active"
-                data-swiper-slide-index="0"
-                role="group"
-                aria-label="1 / 8"
-                style="width: 68px; margin-right: 24px"
-              >
-                <div>
-                  <a
-                    href="city-details.html"
-                    class="tp-destination-6-item d-inline-flex align-items-center"
-                  >
-                    <div class="tp-destination-6-thumb mr-15">
-                      <img
-                        src="{% static 'assets/img/destination/six/thumb.jpg' %}"
-                        alt=""
-                      />
-                    </div>
-                    <div class="tp-destination-6-content">
-                      <h2 class="tp-destination-6-title fw-600 mb-0">
-                        Thailand
-                      </h2>
-                      <span class="tp-destination-6-duration">08 Tour</span>
-                    </div>
-                  </a>
-                </div>
+                    <path
+                      d="M12 5.75H0.750049"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M7.41414 10.75C7.41414 10.75 12.4141 7.06751 12.4141 5.74994C12.4141 4.43236 7.41406 0.75 7.41406 0.75"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                </a>
               </div>
             </div>
-            <span
-              class="swiper-notification"
-              aria-live="assertive"
-              aria-atomic="true"
-            ></span>
-          </div>
-          <div
-            class="tp-destination-5-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal"
-          >
-            <span
-              class="swiper-pagination-bullet swiper-pagination-bullet-active"
-              tabindex="0"
-              role="button"
-              aria-label="Go to slide 1"
-              aria-current="true"
-            ></span
-            ><span
-              class="swiper-pagination-bullet"
-              tabindex="0"
-              role="button"
-              aria-label="Go to slide 2"
-            ></span
-            ><span
-              class="swiper-pagination-bullet"
-              tabindex="0"
-              role="button"
-              aria-label="Go to slide 3"
-            ></span
-            ><span
-              class="swiper-pagination-bullet"
-              tabindex="0"
-              role="button"
-              aria-label="Go to slide 4"
-            ></span
-            ><span
-              class="swiper-pagination-bullet"
-              tabindex="0"
-              role="button"
-              aria-label="Go to slide 5"
-            ></span
-            ><span
-              class="swiper-pagination-bullet"
-              tabindex="0"
-              role="button"
-              aria-label="Go to slide 6"
-            ></span
-            ><span
-              class="swiper-pagination-bullet"
-              tabindex="0"
-              role="button"
-              aria-label="Go to slide 7"
-            ></span
-            ><span
-              class="swiper-pagination-bullet"
-              tabindex="0"
-              role="button"
-              aria-label="Go to slide 8"
-            ></span>
           </div>
         </div>
+        {% endfor %}
       </div>
     </div>
   </div>
@@ -5136,7 +4960,7 @@
               data-wow-duration=".9s"
               data-wow-delay=".4s"
             >
-              Recent blogs &amp; updates
+              Recent Travel &amp; Blog Articels
             </h2>
           </div>
         </div>
@@ -5146,7 +4970,7 @@
             data-wow-duration=".9s"
             data-wow-delay=".5s"
           >
-            <a href="blog-list.html" class="tp-btn-solid">
+            <a href="{% url 'blog' %}" class="tp-btn-solid">
               See all
               <svg
                 width="11"
@@ -5175,6 +4999,7 @@
         </div>
       </div>
       <div class="row">
+        {% for blog in blogs %}
         <div class="col-xl-4 col-lg-6 col-md-6">
           <div
             class="tp-blog-two-item tp-blog-7-item p-relative mb-40 wow fadeInUp"
@@ -5182,89 +5007,30 @@
             data-wow-delay=".3s"
           >
             <div class="tp-blog-two-thumb p-relative">
-              <a href="blog-details.html">
+              <a href="{% url 'blog_detail' blog.slug %}">
                 <img
-                  src="https://html.aqlova.com/turie-demo/turie/assets/img/blog/saven/thumb.jpg"
-                  alt=""
+                  src="{{ blog.image.url }}"
+                  alt="{{ blog.title }}"
                 />
               </a>
-              <span class="tp-blog-category">Trips</span>
+              
             </div>
             <div class="tp-blog-content">
               <div class="tp-blog-meta-wrap mb-10">
                 <div class="tp-blog-meta d-flex flex-wrap align-items-center">
-                  <span>Dec 12,2025</span>
-                  <span>Admin</span>
+                  <span>{{ blog.created_at|date:"M d, Y" }}</span>
+                 
                 </div>
               </div>
               <h3 class="tp-blog-title fw-500">
-                <a href="blog-details.html"
-                  >Strong teamwork helps small groups tackle tough problems</a
+                <a href="{% url 'blog_detail' blog.slug %}"
+                  >{{ blog.title }}</a
                 >
               </h3>
             </div>
           </div>
         </div>
-        <div class="col-xl-4 col-lg-6 col-md-6">
-          <div
-            class="tp-blog-two-item tp-blog-7-item p-relative mb-40 wow fadeInUp"
-            data-wow-duration=".9s"
-            data-wow-delay=".5s"
-          >
-            <div class="tp-blog-two-thumb p-relative">
-              <a href="blog-details.html">
-                <img
-                  src="{% static 'assets/img/blog/saven/thumb-2.jpg' %}"
-                  alt=""
-                />
-              </a>
-              <span class="tp-blog-category">Trips</span>
-            </div>
-            <div class="tp-blog-content">
-              <div class="tp-blog-meta-wrap mb-10">
-                <div class="tp-blog-meta d-flex flex-wrap align-items-center">
-                  <span>Dec 12,2025</span>
-                  <span>Admin</span>
-                </div>
-              </div>
-              <h3 class="tp-blog-title fw-500">
-                <a href="blog-details.html"
-                  >Together We Achieve More: The Power of Teamwork</a
-                >
-              </h3>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-4 col-lg-6 col-md-6">
-          <div
-            class="tp-blog-two-item tp-blog-7-item p-relative mb-40 wow fadeInUp"
-            data-wow-duration=".9s"
-            data-wow-delay=".7s"
-          >
-            <div class="tp-blog-two-thumb p-relative">
-              <a href="blog-details.html">
-                <img
-                  src="https://html.aqlova.com/turie-demo/turie/assets/img/blog/saven/thumb-3.jpg"
-                  alt=""
-                />
-              </a>
-              <span class="tp-blog-category">Trips</span>
-            </div>
-            <div class="tp-blog-content">
-              <div class="tp-blog-meta-wrap mb-10">
-                <div class="tp-blog-meta d-flex flex-wrap align-items-center">
-                  <span>Dec 12,2025</span>
-                  <span>Admin</span>
-                </div>
-              </div>
-              <h3 class="tp-blog-title fw-500">
-                <a href="blog-details.html"
-                  >From Challenges to Triumphs: The Teamwork Journey</a
-                >
-              </h3>
-            </div>
-          </div>
-        </div>
+        {% endfor %}
       </div>
     </div>
   </div>

@@ -161,7 +161,8 @@ class Tour(models.Model):
     food = models.CharField(max_length=100, null=True, blank=True)
     transpotation = models.CharField(max_length=100, null=True, blank=True)
     location = models.CharField(max_length=100, null=True, blank=True)
-    starting_date = models.DateField(null=True, blank=True)
+    departure_city = models.CharField(max_length=100, null=True, blank=True)
+    # starting_date = models.DateField(null=True, blank=True)
     group_size = models.CharField(max_length=100, null=True, blank=True)
     regular_price = models.IntegerField(null=True, blank=True)
     sell_price = models.IntegerField(null=True, blank=True)
@@ -169,15 +170,12 @@ class Tour(models.Model):
         Activity, on_delete=models.CASCADE, null=True, blank=True)
     style = models.ManyToManyField(Style, null=True, blank=True)
 
+    hightlight = CKEditor5Field(config_name='extends')
     overview = CKEditor5Field(config_name='extends')
     includes = models.ManyToManyField(Include, null=True, blank=True)
     excludes = models.ManyToManyField(Execlude,null=True, blank=True)
     route_map = models.ImageField(upload_to='tour/map', null=True, blank=True)
-    promotional_video = models.URLField(null=True, blank=True, help_text="Enter YouTube video URL")
 
-    # itinerary = CKEditor5Field(config_name='extends',null=True, blank=True)
-    gear_check_list = CKEditor5Field(config_name='extends',null=True, blank=True)
-    
     is_featured = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
