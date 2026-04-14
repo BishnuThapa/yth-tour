@@ -14,12 +14,15 @@ def index(request):
     about = AboutUs.objects.first()
     blogs = Blog.objects.filter(is_active=True).order_by('-created_at')[:3]
     all_destinations = Destination.objects.filter(is_active=True)
-        
+    featured_tours=Tour.objects.filter(is_active=True, is_featured=True)[:6]
+    styles=Style.objects.all()
     context = {
         'banner': banner,
         'all_destinations': all_destinations,
         'about': about,
         'blogs': blogs,
+        'styles': styles,
+        'featured_tours': featured_tours,
 
     }
     return render(request, 'index.html', context)
