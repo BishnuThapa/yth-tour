@@ -19,10 +19,9 @@ def default(request):
         .prefetch_related('tours')[:10]
     # defaultseo = DefaultSEO.objects.first()
 
-    # destinations = Destination.objects.prefetch_related(
-    #     'activities').filter(is_active=True)
-    # styles = Style.objects.all()
-    # activities = Activity.objects.filter(destination__title="Nepal").distinct()
+    destination_footer = Destination.objects.all()
+    styles = Style.objects.all()
+    activities = Activity.objects.filter(destination__title="Nepal").distinct()
     social_links = SocialLinks.objects.first()
 
     # defaultseo = DefaultSEO.objects.first()
@@ -46,11 +45,11 @@ def default(request):
         'pagebanner': pagebanner,
         'daytours': daytours,
         'pages': pages,
-        # 'styles': styles,
-        # 'activities': activities,
+        'styles': styles,
+        'activities': activities,
         'destinations': destinations,
         # 'defaultseo': defaultseo,
-        
+        'destination_footer': destination_footer,
         'social_links': social_links,
         # 'mountaineering': mountaineering,
         # 'heightcat': heightcat,

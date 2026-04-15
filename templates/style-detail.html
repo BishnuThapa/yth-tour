@@ -1,0 +1,203 @@
+{% extends "base.html" %} {% block content %}
+<main>
+  <!-- breadcrumb-area-start -->
+  <div
+    class="tp-breadcrumb-area tp-breadcrumb-ptb-2 tp-breadcrumb-overly bg-position"
+    data-background="{{ style.image.url }}"
+    style="background-image: url({{ style.image.url }})"
+  >
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-12 col-md-8">
+          <div class="tp-breadcrumb-wrap text-center">
+            <h2 class="tp-breadcrumb-title fs-112 text-center mb-0">
+              {{ style.title }}
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- breadcrumb-area-end -->
+
+  <!-- tp-category-area-start -->
+  <div class="tp-category-area pt-30 pb-50">
+    <div class="container container-1350">
+      <div class="row gx-25">
+        <div class="col-12 mb-20">
+          <nav class="breadcrumbs p-0">
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li>Travel Style</li>
+              <li>{{ style.title }}</li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- tp-category-area-end -->
+
+  <!-- tp-destination-area-start -->
+  <div class="tp-destination-area">
+    <div class="container container-1350">
+      <div class="row gx-25">
+        <div class="col-lg-12">
+          <h2 class="tp-tour-details-title fw-600 mb-5">
+            About {{ style.title }}
+          </h2>
+          <div class="postbox-wrapper">
+            <div class="postbox-details-text mb-45">
+              <p>{{ style.description|safe }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- tp-destination-area-end -->
+
+  <!-- tp-tour-area-start -->
+  <div class="tp-tour-area tp-tour-ptb-2 pt-55 tp-tour-red pb-45">
+    <div class="container container-1350">
+      <div class="row align-items-center mb-10">
+        <div class="col-lg-9">
+          <h3 class="tp-tour-details-title fw-600 mb-25">
+            Top experiences in {{ style.title }}
+          </h3>
+        </div>
+      </div>
+      <div class="row gx-25">
+        {% if tours %} {% for tour in tours %}
+        <div class="col-xl-4 col-lg-6 col-md-6">
+          <div class="tp-tour-item mb-30">
+            <div class="tp-tour-thumb p-relative fix">
+              <a href="{% url 'package' tour.slug %}" class="image">
+                <img src="{{ tour.image.url }}" alt="{{ tour.title }}" />
+              </a>
+              {% if tour.is_featured %}
+              <div class="tp-tour-badge">
+                <span class="discount tp-ff-inter fw-700">Featured</span>
+              </div>
+              {% endif %}
+            </div>
+            <div class="tp-tour-content">
+              <h3 class="tp-tour-title fw-500 mb-10">
+                <a href="{% url 'package' tour.slug %}">{{ tour.title }}</a>
+              </h3>
+              <div class="tp-tour-info">
+                <span>
+                  <svg
+                    width="15"
+                    height="16"
+                    viewBox="0 0 15 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.49961 7.04985C9.49961 8.40295 8.40271 9.49985 7.04961 9.49985C5.69651 9.49985 4.59961 8.40295 4.59961 7.04985C4.59961 5.69675 5.69651 4.59985 7.04961 4.59985C8.40271 4.59985 9.49961 5.69675 9.49961 7.04985Z"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    ></path>
+                    <path
+                      d="M7.04951 0.75C10.4587 0.75 13.349 3.57287 13.349 6.99757C13.349 10.4768 10.4116 12.9183 7.69836 14.5786C7.50063 14.6903 7.27699 14.7489 7.04951 14.7489C6.82203 14.7489 6.5984 14.6903 6.40066 14.5786C3.6925 12.9022 0.75 10.4888 0.75 6.99757C0.75 3.57287 3.64038 0.75 7.04951 0.75Z"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    ></path>
+                  </svg>
+                  {{ tour.destination.title }}
+                </span>
+                <span>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M7.74946 14.7489C11.6151 14.7489 14.7489 11.6151 14.7489 7.74946C14.7489 3.88376 11.6151 0.75 7.74946 0.75C3.88376 0.75 0.75 3.88376 0.75 7.74946C0.75 11.6151 3.88376 14.7489 7.74946 14.7489Z"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    ></path>
+                    <path
+                      d="M5.99951 5.99971L8.44944 8.44943M10.5495 4.94971L7.04951 8.44971"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                  {{ tour.duration }} days
+                </span>
+                <span>
+                  <svg
+                    width="18"
+                    height="16"
+                    viewBox="0 0 18 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.63454 3.86111C9.63454 5.57933 8.18801 6.97223 6.40369 6.97223C4.61935 6.97223 3.17285 5.57933 3.17285 3.86111C3.17285 2.14289 4.61935 0.75 6.40369 0.75C8.18801 0.75 9.63454 2.14289 9.63454 3.86111Z"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    ></path>
+                    <path
+                      d="M11.2495 6.97223C13.0338 6.97223 14.4804 5.57933 14.4804 3.86111C14.4804 2.14289 13.0338 0.75 11.2495 0.75"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M8.01873 9.30505H4.78819C2.55796 9.30505 0.75 11.0461 0.75 13.1937C0.75 14.0528 1.47318 14.7492 2.36527 14.7492H10.4416C11.3338 14.7492 12.0569 14.0528 12.0569 13.1937C12.0569 11.0461 10.2489 9.30505 8.01873 9.30505Z"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M12.8643 9.30505C15.0947 9.30505 16.9028 11.0462 16.9028 13.1939C16.9028 14.0531 16.1796 14.7495 15.2874 14.7495H14.0758"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                  <span>{{ tour.group_size }}</span> Group size
+                </span>
+              </div>
+              <div
+                class="tp-tour-footer d-flex justify-content-between gap-2 align-items-center"
+              >
+                <div class="tp-tour-price">
+                  <div class="tp-tour-top-price">
+                    <span class="tp-tour-prefix">From:</span>
+                  </div>
+                  <div class="tp-tour-bottom-price">
+                    <span class="tp-tour-new-price fw-700"
+                      >${{ tour.sell_price}}</span
+                    >
+                    <span class="tp-tour-suffix">/person</span>
+                  </div>
+                </div>
+                <div class="tp-tour-btn">
+                  <a
+                    href="{% url 'package' tour.slug %}"
+                    class="tp-btn-sm fw-500 tp-ff-inter"
+                    >View Details</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %} {% else %}
+        <p>No tours available for this destination.</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <!-- tp-tour-area-end -->
+</main>
+{% endblock content %}

@@ -114,6 +114,40 @@ def trip(request, slug):
     return render(request, 'trip.html', context)
 
 
+def style(request):
+    styles = Style.objects.annotate(
+        tour_count=Count('tour')  # Using the correct related_name
+    ).all()
+    context = {
+        'styles': styles,
+    }
+    return render(request, 'style.html', context)
+
+
+def style_detail(request, slug):
+    style = get_object_or_404(Style.objects.only(
+        'id', 'title', 'slug'), slug=slug)
+
+    tours = (
+        Tour.objects.filter(
+            style=style, destination__title="Nepal", is_active=True)
+        .select_related('destination', 'activity')
+        .prefetch_related('style', 'includes', 'excludes')
+        .only(
+            'id', 'title', 'slug', 'image', 'sell_price', 'regular_price',
+            'duration', 'destination__title'
+        )
+    )
+
+    context = {
+        'style': style,
+        'tours': tours,
+
+        # 'categories': categories,
+        # 'related_products': related_products
+    }
+    return render(request, 'style-detail.html', context)
+
 
 
 def contact(request):

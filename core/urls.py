@@ -12,6 +12,10 @@ urlpatterns = [
     path('destination/', views.destination, name='destination'),
     path('destination/<slug:slug>/', views.destination_detail, name='destination-detail'),
     
+    path('travel-style/', views.style, name='style'),
+    path('travel-style/<slug:slug>/',
+         views.style_detail, name='style-detail'),
+
     path('page/', include('page.urls')),
     path('day-tour/', include('daytour.urls')),
     path('contact-us', views.contact, name='contact'),

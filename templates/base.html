@@ -784,7 +784,7 @@
                   data-wow-delay=".3s"
                 >
                   <div class="tp-footer-logo mb-20">
-                    <a href="index.html">
+                    <a href="/">
                       <img
                         width="112"
                         src="{{ logo.logo.url }}"
@@ -792,7 +792,23 @@
                       />
                     </a>
                   </div>
-                  <p class="tp-footer-dec">{{ site_info.short_description}}</p>
+                  <div class="tp-footer-contact">
+                    <a
+                      href="#"
+                      target="_blank"
+                      class="location mb-20 d-inline-block"
+                      >{{ site_info.address }}</a
+                    >
+                    <span class="support d-block mb-10">Phone :</span>
+                    <a href="tel:977{{ site_info.phone }}" class="phone"
+                      >{{ site_info.phone }}</a
+                    >
+                    <span class="support d-block mb-10">Email :</span>
+                    <a href="tel:977{{ site_info.email }}" class="email"
+                      >{{ site_info.email }}</a
+                    >
+                  </div>
+                  <hr class="mb-20">
                   <div class="tp-footer-social">
                     {% if social_links.facebook_link %}
                     <a href="{{ social_links.facebook_link }}" target="_blank">
@@ -852,14 +868,14 @@
                   data-wow-delay=".5s"
                 >
                   <h3 class="tp-footer-widget-title fw-600 mb-15">
-                    Destination
+                    Travel Styles
                   </h3>
                   <div class="tp-footer-widget-menu">
                     <ul>
-                      {% for dest in destinations %}
+                      {% for style in styles %}
                       <li>
-                        <a href="{% url 'destination-detail' slug=dest.slug %}"
-                          >{{ dest.title }}</a
+                        <a href="{% url 'style-detail' slug=style.slug %}"
+                          >{{ style.title }}</a
                         >
                       </li>
                       {% endfor %}
@@ -878,12 +894,10 @@
                   </h3>
                   <div class="tp-footer-widget-menu">
                     <ul>
-                      <li><a href="index.html#">Tour Packages</a></li>
-                      <li>
-                        <a href="index.html#">Travel Guides &amp; Tips</a>
-                      </li>
-                      <li><a href="index.html#">Local Experiences</a></li>
-                      <li><a href="index.html#">Travel Insurance</a></li>
+                      {% for act in activities %}
+                      <li><a href="#">{{ act.title }}</a></li>
+                      
+                      {% endfor %}
                     </ul>
                   </div>
                 </div>
@@ -895,241 +909,21 @@
                   data-wow-delay=".7s"
                 >
                   <h3 class="tp-footer-widget-title fw-600 mb-15">Contact</h3>
-                  <div class="tp-footer-contact">
-                    <a
-                      href="#"
-                      target="_blank"
-                      class="location mb-20 d-inline-block"
-                      >{{ site_info.address }}</a
-                    >
-                    <span class="support d-block mb-10">Phone :</span>
-                    <a href="tel:977{{ site_info.phone }}" class="phone"
-                      >{{ site_info.phone }}</a
-                    >
-                    <span class="support d-block mb-10">Email :</span>
-                    <a href="tel:977{{ site_info.email }}" class="email"
-                      >{{ site_info.email }}</a
-                    >
+                  <div class="tp-footer-widget-menu">
+                    <ul>
+                      {% for dest in destination_footer %}
+                      <li><a href="{% url 'destination-detail' slug=dest.slug %}">{{ dest.title }}</a></li>
+                      
+                      {% endfor %}
+                    </ul>
                   </div>
+                  
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="container-fluid container-1856">
-          <div
-            class="tp-instagram-wrap wow fadeInUp"
-            data-wow-duration=".9s"
-            data-wow-delay=".4s"
-          >
-            <div
-              class="swiper tp-instagram-slide swiper-initialized swiper-horizontal swiper-pointer-events"
-            >
-              <div
-                class="swiper-wrapper slide-transtion"
-                id="swiper-wrapper-ad51d593ab2deab10"
-                aria-live="off"
-                style="
-                  transition-duration: 8000ms;
-                  transform: translate3d(-110px, 0px, 0px);
-                "
-              >
-                <div
-                  class="swiper-slide swiper-slide-duplicate"
-                  data-swiper-slide-index="5"
-                  role="group"
-                  aria-label="6 / 7"
-                  style="width: 24px; margin-right: 20px"
-                >
-                  <div class="tp-instagram-thumb p-relative">
-                    <a href="index.html#">
-                      <img
-                        class="w-100"
-                        src="https://html.aqlova.com/turie-demo/turie/assets/img/footer/thumb-3.jpg"
-                        alt="instagram"
-                      />
-                    </a>
-                  </div>
-                </div>
-                <div
-                  class="swiper-slide swiper-slide-duplicate"
-                  data-swiper-slide-index="6"
-                  role="group"
-                  aria-label="7 / 7"
-                  style="width: 24px; margin-right: 20px"
-                >
-                  <div class="tp-instagram-thumb p-relative">
-                    <a href="index.html#">
-                      <img
-                        class="w-100"
-                        src="assets/img/footer/thumb-4.jpg"
-                        alt="instagram"
-                      />
-                    </a>
-                  </div>
-                </div>
-                <div
-                  class="swiper-slide swiper-slide-prev"
-                  data-swiper-slide-index="0"
-                  role="group"
-                  aria-label="1 / 7"
-                  style="width: 24px; margin-right: 20px"
-                >
-                  <div class="tp-instagram-thumb p-relative">
-                    <a href="index.html#">
-                      <img
-                        class="w-100"
-                        src="https://html.aqlova.com/turie-demo/turie/assets/img/footer/thumb.jpg"
-                        alt="instagram"
-                      />
-                    </a>
-                  </div>
-                </div>
-                <div
-                  class="swiper-slide swiper-slide-active"
-                  data-swiper-slide-index="1"
-                  role="group"
-                  aria-label="2 / 7"
-                  style="width: 24px; margin-right: 20px"
-                >
-                  <div class="tp-instagram-thumb p-relative">
-                    <a href="index.html#">
-                      <img
-                        class="w-100"
-                        src="https://html.aqlova.com/turie-demo/turie/assets/img/footer/thumb-2.jpg"
-                        alt="instagram"
-                      />
-                    </a>
-                  </div>
-                </div>
-                <div
-                  class="swiper-slide swiper-slide-next"
-                  data-swiper-slide-index="2"
-                  role="group"
-                  aria-label="3 / 7"
-                  style="width: 24px; margin-right: 20px"
-                >
-                  <div class="tp-instagram-thumb p-relative">
-                    <a href="index.html#">
-                      <img
-                        class="w-100"
-                        src="https://html.aqlova.com/turie-demo/turie/assets/img/footer/thumb-3.jpg"
-                        alt="instagram"
-                      />
-                    </a>
-                  </div>
-                </div>
-                <div
-                  class="swiper-slide"
-                  data-swiper-slide-index="3"
-                  role="group"
-                  aria-label="4 / 7"
-                  style="width: 24px; margin-right: 20px"
-                >
-                  <div class="tp-instagram-thumb p-relative">
-                    <a href="index.html#">
-                      <img
-                        class="w-100"
-                        src="assets/img/footer/thumb-4.jpg"
-                        alt="instagram"
-                      />
-                    </a>
-                  </div>
-                </div>
-                <div
-                  class="swiper-slide"
-                  data-swiper-slide-index="4"
-                  role="group"
-                  aria-label="5 / 7"
-                  style="width: 24px; margin-right: 20px"
-                >
-                  <div class="tp-instagram-thumb p-relative">
-                    <a href="index.html#">
-                      <img
-                        class="w-100"
-                        src="https://html.aqlova.com/turie-demo/turie/assets/img/footer/thumb-5.jpg"
-                        alt="instagram"
-                      />
-                    </a>
-                  </div>
-                </div>
-                <div
-                  class="swiper-slide"
-                  data-swiper-slide-index="5"
-                  role="group"
-                  aria-label="6 / 7"
-                  style="width: 24px; margin-right: 20px"
-                >
-                  <div class="tp-instagram-thumb p-relative">
-                    <a href="index.html#">
-                      <img
-                        class="w-100"
-                        src="https://html.aqlova.com/turie-demo/turie/assets/img/footer/thumb-3.jpg"
-                        alt="instagram"
-                      />
-                    </a>
-                  </div>
-                </div>
-                <div
-                  class="swiper-slide"
-                  data-swiper-slide-index="6"
-                  role="group"
-                  aria-label="7 / 7"
-                  style="width: 24px; margin-right: 20px"
-                >
-                  <div class="tp-instagram-thumb p-relative">
-                    <a href="index.html#">
-                      <img
-                        class="w-100"
-                        src="assets/img/footer/thumb-4.jpg"
-                        alt="instagram"
-                      />
-                    </a>
-                  </div>
-                </div>
-                <div
-                  class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-prev"
-                  data-swiper-slide-index="0"
-                  role="group"
-                  aria-label="1 / 7"
-                  style="width: 24px; margin-right: 20px"
-                >
-                  <div class="tp-instagram-thumb p-relative">
-                    <a href="index.html#">
-                      <img
-                        class="w-100"
-                        src="https://html.aqlova.com/turie-demo/turie/assets/img/footer/thumb.jpg"
-                        alt="instagram"
-                      />
-                    </a>
-                  </div>
-                </div>
-                <div
-                  class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active"
-                  data-swiper-slide-index="1"
-                  role="group"
-                  aria-label="2 / 7"
-                  style="width: 24px; margin-right: 20px"
-                >
-                  <div class="tp-instagram-thumb p-relative">
-                    <a href="index.html#">
-                      <img
-                        class="w-100"
-                        src="https://html.aqlova.com/turie-demo/turie/assets/img/footer/thumb-2.jpg"
-                        alt="instagram"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <span
-                class="swiper-notification"
-                aria-live="assertive"
-                aria-atomic="true"
-              ></span>
-            </div>
-          </div>
-        </div>
+       
         <div class="tp-copyright-area pt-25 pb-15">
           <div class="container">
             <div class="row align-items-center">
